@@ -197,3 +197,52 @@ Caso a ideia seja validada, podemos iniciar um MVP simples com:
 - **Um formulário para cadastrar lembretes.**
 - **Integração básica com WhatsApp API.**
 - **Painel minimalista para gerenciar lembretes.**
+
+---
+
+# 💬 SOBRE AS APIs DE INTEGRAÇÃO - As APIs de Integração com WhatsApp São Pagas?  
+
+## 🔍 Sim, a maioria das APIs oficiais são pagas, mas há alternativas.
+
+Para enviar mensagens automáticas pelo WhatsApp de forma profissional, é necessário utilizar a **API oficial do WhatsApp Business (Meta)** ou outras soluções alternativas.  
+
+---
+
+## ✅ **Opções Disponíveis**  
+
+### 1️⃣ **API Oficial do WhatsApp Business (Meta) – Paga**  
+🔹 Oferecida pela Meta (Facebook), permite **envio automático de mensagens**.  
+🔹 Exige **aprovação da empresa** para uso.  
+🔹 Mensagens de **suporte ao cliente são gratuitas** dentro de 24h da última interação do usuário.  
+🔹 **Mensagens proativas (como lembretes)** têm um custo baseado no país do destinatário.  
+🔹 Necessário um **provedor oficial (BSP - Business Solution Provider)** como Twilio, Zenvia, WATI, etc.  
+
+🔗 **Mais informações:** [Meta Business API](https://business.facebook.com/whatsapp)  
+
+---
+
+### 2️⃣ **Twilio WhatsApp API – Paga**  
+🔹 Provedor oficial da API do WhatsApp.  
+🔹 Cobrança por mensagem enviada.  
+🔹 Permite fácil integração com **Django e outras tecnologias**.  
+
+🔗 **Mais informações:** [Twilio WhatsApp](https://www.twilio.com/whatsapp)  
+
+---
+
+### 3️⃣ **Alternativas Não Oficiais – Algumas Gratuitas, Mas Risco de Banimento**  
+Existem **bibliotecas e serviços não oficiais** que automatizam mensagens no WhatsApp sem usar a API oficial.  
+No entanto, elas **violam os Termos de Serviço** do WhatsApp e podem levar ao **banimento do número**.  
+
+Exemplos:  
+- **Baileys** (Node.js) → Usa Web WhatsApp (riscos altos de bloqueio).  
+- **WhatsApp Web Automation (Selenium, Puppeteer)** → Simula o uso manual (pouco confiável).  
+
+---
+
+## 🔥 **Conclusão: Qual Escolher?**  
+✅ Se deseja um **serviço confiável e escalável**, use a **API oficial do WhatsApp** via um **provedor como Twilio ou Zenvia**.  
+✅ Se está apenas testando um **MVP inicial**, pode experimentar soluções alternativas (com riscos de bloqueio).  
+✅ O **Google Agenda e Zapier** oferecem **integrações básicas**, mas podem ser limitados e caros para automação avançada.  
+
+🔹 **Quer ajuda para configurar a API e definir a melhor estratégia?** 🚀  
