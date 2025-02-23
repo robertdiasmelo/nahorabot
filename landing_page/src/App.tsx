@@ -511,9 +511,9 @@ function App() {
             <div>
               <h3 className="text-xl font-bold mb-4">{t.footer.contact}</h3>
               <p className="text-gray-400">
-                Email: hello@remindme.app
+                <b>Email:</b> contato.whatsappreminder@gmail.com
                 <br />
-                {t.footer.support}
+               <b> {t.footer.support} </b>
               </p>
             </div>
           </div>

@@ -191,7 +191,7 @@ export const translations: Record<string, Translation> = {
       button: "Join the Waitlist",
     },
     footer: {
-      description: "Automated WhatsApp reminders that help businesses grow.",
+      description: "Automated WhatsApp reminders that help businesses and people grow.",
       quickLinks: "Quick Links",
       contact: "Contact",
       support: "Support available 24/7",
@@ -296,7 +296,7 @@ export const translations: Record<string, Translation> = {
       button: "Entrar na Lista",
     },
     footer: {
-      description: "Lembretes automatizados via WhatsApp que ajudam empresas a crescer.",
+      description: "Lembretes automatizados via WhatsApp que ajudam no crescimento de pessoas e negócios.",
       quickLinks: "Links Rápidos",
       contact: "Contato",
       support: "Suporte disponível 24/7",
