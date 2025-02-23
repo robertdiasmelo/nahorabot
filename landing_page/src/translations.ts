@@ -11,6 +11,7 @@ interface Translation {
     joinWaitlist: string;
     watchDemo: string;
     comingSoon: string;
+    spanText: string;
   };
   features: {
     title: string;
@@ -35,17 +36,23 @@ interface Translation {
       title: string;
       description: string;
       features: string[];
+      priceText: string;
+      priceRecurrence: string;
     };
     basic: {
       title: string;
       description: string;
       popular: string;
       features: string[];
+      priceText: string;
+      priceRecurrence: string;
     };
     pro: {
       title: string;
       description: string;
       features: string[];
+      priceText: string;
+      priceRecurrence: string;
     };
   };
   waitlist: {
@@ -99,6 +106,7 @@ export const translations: Record<string, Translation> = {
       joinWaitlist: "Join the Waitlist",
       watchDemo: "Watch Demo",
       comingSoon: "Coming soon • Be the first to know when we launch",
+      spanText: "60% fewer no-shows"
     },
     features: {
       title: "Why Choose RemindMe?",
@@ -127,6 +135,8 @@ export const translations: Record<string, Translation> = {
           "Basic templates",
           "WhatsApp integration",
         ],
+        priceText: "$0",
+        priceRecurrence: "mo",
       },
       basic: {
         title: "Basic",
@@ -137,6 +147,8 @@ export const translations: Record<string, Translation> = {
           "Custom templates",
           "Priority support",
         ],
+        priceText: "$9,90",
+        priceRecurrence: "mo",
       },
       pro: {
         title: "Pro",
@@ -146,6 +158,8 @@ export const translations: Record<string, Translation> = {
           "Advanced templates",
           "24/7 priority support",
         ],
+        priceText: "$19,90",
+        priceRecurrence: "mo",
       },
     },
     waitlist: {
@@ -197,6 +211,7 @@ export const translations: Record<string, Translation> = {
       joinWaitlist: "Entrar na Lista",
       watchDemo: "Ver Demo",
       comingSoon: "Em breve • Seja o primeiro a saber quando lançarmos",
+      spanText: "60% menos faltas"
     },
     features: {
       title: "Por que escolher o RemindMe?",
@@ -225,6 +240,8 @@ export const translations: Record<string, Translation> = {
           "Templates básicos",
           "Integração com WhatsApp",
         ],
+        priceText: "R$0",
+        priceRecurrence: "mês",
       },
       basic: {
         title: "Básico",
@@ -235,6 +252,8 @@ export const translations: Record<string, Translation> = {
           "Templates personalizados",
           "Suporte prioritário",
         ],
+        priceText: "R$9,90",
+        priceRecurrence: "mês",
       },
       pro: {
         title: "Pro",
@@ -244,6 +263,8 @@ export const translations: Record<string, Translation> = {
           "Templates avançados",
           "Suporte 24/7 prioritário",
         ],
+        priceText: "R$19,90",
+        priceRecurrence: "mês",
       },
     },
     waitlist: {
@@ -260,7 +281,7 @@ export const translations: Record<string, Translation> = {
         },
         phone: {
           label: "Número de Telefone",
-          placeholder: "+55 (11) 99999-9999",
+          placeholder: "(11) 99999-9999",
         },
         submit: "Entrar na Lista",
       },

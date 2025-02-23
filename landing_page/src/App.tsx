@@ -1,26 +1,25 @@
-import React from "react";
+import React from 'react';
 import {
   Menu,
   X,
   ArrowRight,
   Bell,
-  Calendar,
   Clock,
   DollarSign,
   MessageSquare,
   Zap,
   Check,
   Globe,
-} from "lucide-react";
-import { translations } from "./translations";
+} from 'lucide-react';
+import { translations } from './translations';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [language, setLanguage] = React.useState<"en" | "pt">("en");
+  const [language, setLanguage] = React.useState<'pt' | 'en'>('pt');
   const [formData, setFormData] = React.useState({
-    name: "",
-    email: "",
-    phone: "",
+    name: '',
+    email: '',
+    phone: '',
   });
   const [isSubmitted, setIsSubmitted] = React.useState(false);
 
@@ -49,43 +48,43 @@ function App() {
     setIsSubmitted(true);
 
     try {
-      const url = import.meta.env.VITE_URL_ENPOINT_POST;
+      const url = import.meta.env.VITE_URL_ENDPOINT_POST;
 
       const formDataObject = new FormData();
 
-      formDataObject.append("name", formData.name);
-      formDataObject.append("email", formData.email);
-      formDataObject.append("phone", formData.phone);
+      formDataObject.append('name', formData.name);
+      formDataObject.append('email', formData.email);
+      formDataObject.append('phone', formData.phone);
 
       const keyValuePairs: string[] = [];
-      for (let pair of formDataObject.entries()) {
-        if (typeof pair[1] === "string") {
+      for (const pair of formDataObject.entries()) {
+        if (typeof pair[1] === 'string') {
           keyValuePairs.push(
-            encodeURIComponent(pair[0]) + "=" + encodeURIComponent(pair[1])
+            encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1])
           );
         }
       }
-      const formDataString = keyValuePairs.join("&");
+      const formDataString = keyValuePairs.join('&');
 
       const response = await fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: formDataString,
       });
 
       if (!response.ok) {
-        throw new Error("Erro na requisição");
+        throw new Error('Erro na requisição');
       }
       const responseText = await response.text();
 
       try {
         const responseJson = JSON.parse(responseText);
 
-        console.log("Resposta JSON:", responseJson);
+        console.log('Resposta JSON:', responseJson);
       } catch (jsonError) {
-        console.log("A resposta não é um JSON válido:", jsonError);
+        console.log('A resposta não é um JSON válido:', jsonError);
       }
     } catch (err) {
       console.log(err);
@@ -100,7 +99,7 @@ function App() {
   };
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "pt" : "en"));
+    setLanguage((prev) => (prev === 'en' ? 'pt' : 'en'));
   };
 
   return (
@@ -110,10 +109,13 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0 flex items-center">
-              <Bell className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-blue-600 ml-2">
-                RemindMe
-              </span>
+              
+                <Bell className="h-8 w-8 text-blue-600" />
+                <a href="/">
+                <span className="text-2xl font-bold text-blue-600 ml-2">
+                  WhatsApp Reminder
+                </span>
+              </a>
             </div>
 
             {/* Desktop Navigation */}
@@ -143,9 +145,12 @@ function App() {
                 <Globe size={20} />
                 <span>{language.toUpperCase()}</span>
               </button>
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-                {t.nav.joinWaitlist}
-              </button>
+
+              <a href="#waitlist">
+                <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
+                  {t.nav.joinWaitlist}
+                </button>
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -203,7 +208,7 @@ function App() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                {t.hero.title}{" "}
+                {t.hero.title}{' '}
                 <span className="text-blue-600">{t.hero.titleHighlight}</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">{t.hero.subtitle}</p>
@@ -212,12 +217,12 @@ function App() {
                   href="#waitlist"
                   className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors flex items-center justify-center"
                 >
-                  {t.hero.joinWaitlist}{" "}
+                  {t.hero.joinWaitlist}{' '}
                   <ArrowRight className="ml-2" size={20} />
                 </a>
-                <button className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-full hover:border-blue-600 hover:text-blue-600 transition-colors">
+                {/* <button className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-full hover:border-blue-600 hover:text-blue-600 transition-colors">
                   {t.hero.watchDemo}
-                </button>
+                </button> */}
               </div>
               <p className="mt-4 text-sm text-gray-500">{t.hero.comingSoon}</p>
             </div>
@@ -230,7 +235,7 @@ function App() {
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
                 <div className="flex items-center gap-2">
                   <Clock className="text-green-500" />
-                  <span className="font-semibold">60% fewer no-shows</span>
+                  <span className="font-semibold">{t.hero.spanText}</span>
                 </div>
               </div>
             </div>
@@ -279,7 +284,7 @@ function App() {
                 <p className="text-gray-600">{t.pricing.free.description}</p>
                 <div className="mt-4">
                   <p className="text-3xl font-bold">
-                    R$0<span className="text-lg text-gray-500">/mo</span>
+                    {t.pricing.free.priceText}<span className="text-lg text-gray-500">/{t.pricing.free.priceRecurrence}</span>
                   </p>
                 </div>
               </div>
@@ -309,7 +314,7 @@ function App() {
                 <p className="text-gray-600">{t.pricing.basic.description}</p>
                 <div className="mt-4">
                   <p className="text-3xl font-bold">
-                    R$9,90<span className="text-lg text-gray-500">/mo</span>
+                    {t.pricing.basic.priceText}<span className="text-lg text-gray-500">/{t.pricing.basic.priceRecurrence}</span>
                   </p>
                 </div>
               </div>
@@ -336,7 +341,7 @@ function App() {
                 <p className="text-gray-600">{t.pricing.pro.description}</p>
                 <div className="mt-4">
                   <p className="text-3xl font-bold">
-                    R$19,90<span className="text-lg text-gray-500">/mo</span>
+                  {t.pricing.pro.priceText}<span className="text-lg text-gray-500">/{t.pricing.pro.priceRecurrence}</span>
                   </p>
                 </div>
               </div>
@@ -472,7 +477,7 @@ function App() {
               <div className="flex items-center mb-4">
                 <Bell className="h-8 w-8 text-blue-500" />
                 <span className="text-2xl font-bold text-white ml-2">
-                  RemindMe
+                WhatsApp Reminder
                 </span>
               </div>
               <p className="text-gray-400">{t.footer.description}</p>
@@ -514,7 +519,7 @@ function App() {
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
             <p>
-              &copy; {new Date().getFullYear()} RemindMe. {t.footer.rights}
+              &copy; {new Date().getFullYear()} WhatsApp Reminder. {t.footer.rights}
             </p>
           </div>
         </div>
