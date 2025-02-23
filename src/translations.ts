@@ -109,7 +109,7 @@ export const translations: Record<string, Translation> = {
       spanText: "60% fewer no-shows"
     },
     features: {
-      title: "Why Choose RemindMe?",
+      title: "Why Choose WhatsApp Reminder?",
       subtitle: "Simple, effective, and affordable automated reminders that help you stay connected with clients and reduce no-shows.",
       whatsappFirst: {
         title: "WhatsApp First",
@@ -214,7 +214,7 @@ export const translations: Record<string, Translation> = {
       spanText: "60% menos faltas"
     },
     features: {
-      title: "Por que escolher o RemindMe?",
+      title: "Por que escolher o WhatsApp Reminder?",
       subtitle: "Lembretes automatizados simples, eficazes e acessíveis que ajudam você a manter contato com clientes e reduzir faltas.",
       whatsappFirst: {
         title: "Foco no WhatsApp",
