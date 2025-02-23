@@ -182,7 +182,7 @@ export const translations: Record<string, Translation> = {
       },
       success: {
         title: "Thank You!",
-        message: "You're on the list! We'll notify you as soon as RemindMe launches.",
+        message: "You're on the list! We'll notify you as soon as WhatsApp Reminder launches.",
       },
     },
     cta: {
@@ -287,7 +287,7 @@ export const translations: Record<string, Translation> = {
       },
       success: {
         title: "Obrigado!",
-        message: "Você está na lista! Avisaremos assim que o RemindMe for lançado.",
+        message: "Você está na lista! Avisaremos assim que o Whatsapp Reminder for lançado.",
       },
     },
     cta: {

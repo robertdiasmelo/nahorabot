@@ -1,0 +1,47 @@
+### Node.js ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+### Build ###
+build/
+dist/
+
+### Editor e Sistema ###
+.DS_Store
+Thumbs.db
+
+### Configuração do Ambiente ###
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+### Logs ###
+logs/
+*.log
+
+### Cache ###
+.cache/
+
+### Testes ###
+/coverage
+/jest.config.js
+
+### Misc ###
+public/static/
+*.pem
+*.crt
+*.key
+
+### IDEs ###
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
