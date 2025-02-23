@@ -142,7 +142,7 @@ function App() {
                 onClick={toggleLanguage}
                 className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
               >
-                <Globe size={20} />
+                <Globe size={20}/>
                 <span>{language.toUpperCase()}</span>
               </button>
 
@@ -157,9 +157,9 @@ function App() {
             <div className="md:hidden flex items-center gap-4">
               <button
                 onClick={toggleLanguage}
-                className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-colors"
+                className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-colors px-2"
               >
-                <Globe size={20} />
+                <Globe size={14} />
                 <span>{language.toUpperCase()}</span>
               </button>
               <button
