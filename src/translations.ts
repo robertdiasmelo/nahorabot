@@ -1,7 +1,8 @@
 interface Translation {
   nav: {
     features: string;
-    pricing: string;
+    howItWorks: string;
+    FAQ: string;
     joinWaitlist: string;
   };
   hero: {
@@ -11,7 +12,6 @@ interface Translation {
     joinWaitlist: string;
     watchDemo: string;
     comingSoon: string;
-    spanText: string;
   };
   features: {
     title: string;
@@ -36,23 +36,17 @@ interface Translation {
       title: string;
       description: string;
       features: string[];
-      priceText: string;
-      priceRecurrence: string;
     };
     basic: {
       title: string;
       description: string;
       popular: string;
       features: string[];
-      priceText: string;
-      priceRecurrence: string;
     };
     pro: {
       title: string;
       description: string;
       features: string[];
-      priceText: string;
-      priceRecurrence: string;
     };
   };
   waitlist: {
@@ -90,143 +84,62 @@ interface Translation {
     support: string;
     rights: string;
   };
+  faq: {
+    title: string;
+    questions: {
+      question: string;
+      answer: string;
+    }[];
+  };
+  howItWorks: {
+    title: string;
+    steps: {
+      step: string;
+      description: string;
+    }[];
+    tagline: string;
+  };
+  forWho: {
+    title: string;
+    audiences: string[];
+  };
+  development: {
+    title: string;
+    description: string;
+    comingSoon: string;
+  };
 }
 
 export const translations: Record<string, Translation> = {
-  en: {
-    nav: {
-      features: "Features",
-      pricing: "Pricing",
-      joinWaitlist: "Join Waitlist",
-    },
-    hero: {
-      title: "Never Miss Another",
-      titleHighlight: "Important Moment",
-      subtitle: "Automate your WhatsApp reminders and reduce no-shows by up to 60%. Perfect for businesses and individuals who want a simple, effective way to stay connected.",
-      joinWaitlist: "Join the Waitlist",
-      watchDemo: "Watch Demo",
-      comingSoon: "Coming soon • Be the first to know when we launch",
-      spanText: "60% fewer no-shows"
-    },
-    features: {
-      title: "Why Choose WhatsApp Reminder?",
-      subtitle: "Simple, effective, and affordable automated reminders that help you stay connected with clients and reduce no-shows.",
-      whatsappFirst: {
-        title: "WhatsApp First",
-        description: "Send reminders where they're most likely to be seen. With 98% open rates, WhatsApp ensures your messages get noticed.",
-      },
-      quickSetup: {
-        title: "Quick Setup",
-        description: "Get started in minutes, not hours. No technical skills required - just connect your WhatsApp and start scheduling reminders.",
-      },
-      costEffective: {
-        title: "Cost-Effective",
-        description: "Pay a fraction of what you'd spend on complex automation tools. Perfect for small businesses and individuals.",
-      },
-    },
-    pricing: {
-      title: "Simple, Transparent Pricing",
-      subtitle: "Choose the plan that fits your needs. Start with our free tier and upgrade as you grow.",
-      free: {
-        title: "Free",
-        description: "Perfect for getting started",
-        features: [
-          "5 monthly reminders",
-          "Basic templates",
-          "WhatsApp integration",
-        ],
-        priceText: "$0",
-        priceRecurrence: "mo",
-      },
-      basic: {
-        title: "Basic",
-        description: "For growing businesses",
-        popular: "Most Popular",
-        features: [
-          "50 monthly reminders",
-          "Custom templates",
-          "Priority support",
-        ],
-        priceText: "$9,90",
-        priceRecurrence: "mo",
-      },
-      pro: {
-        title: "Pro",
-        description: "For power users",
-        features: [
-          "Unlimited reminders",
-          "Advanced templates",
-          "24/7 priority support",
-        ],
-        priceText: "$19,90",
-        priceRecurrence: "mo",
-      },
-    },
-    waitlist: {
-      title: "Join the Waitlist",
-      subtitle: "Be the first to know when we launch and get exclusive early access.",
-      form: {
-        name: {
-          label: "Full Name",
-          placeholder: "John Doe",
-        },
-        email: {
-          label: "Email Address",
-          placeholder: "john@example.com",
-        },
-        phone: {
-          label: "Phone Number",
-          placeholder: "+1 (555) 000-0000",
-        },
-        submit: "Join Waitlist",
-      },
-      success: {
-        title: "Thank You!",
-        message: "You're on the list! We'll notify you as soon as WhatsApp Reminder launches.",
-      },
-    },
-    cta: {
-      title: "Ready to Transform Your Business?",
-      subtitle: "Join the waitlist today and be the first to experience the future of automated reminders.",
-      button: "Join the Waitlist",
-    },
-    footer: {
-      description: "Automated WhatsApp reminders that help businesses and people grow.",
-      quickLinks: "Quick Links",
-      contact: "Contact",
-      support: "Support available 24/7",
-      rights: "All rights reserved.",
-    },
-  },
   pt: {
     nav: {
       features: "Recursos",
-      pricing: "Preços",
+      howItWorks: "Como funciona",
+      FAQ: "FAQ",
       joinWaitlist: "Lista de Espera",
     },
     hero: {
-      title: "Nunca Mais Perca Um",
-      titleHighlight: "Momento Importante",
-      subtitle: "Automatize seus lembretes no WhatsApp e reduza faltas em até 60%. Perfeito para empresas e indivíduos que desejam uma maneira simples e eficaz de manter contato.",
-      joinWaitlist: "Entrar na Lista",
+      title: "Nunca mais esqueça",
+      titleHighlight: "compromissos importantes!",
+      subtitle: "Automatize lembretes via WhatsApp e ganhe mais tempo no seu dia. Agende mensagens, evite esquecimentos e deixe tudo automático!",
+      joinWaitlist: "Entrar na Lista de Espera",
       watchDemo: "Ver Demo",
       comingSoon: "Em breve • Seja o primeiro a saber quando lançarmos",
-      spanText: "60% menos faltas"
     },
     features: {
-      title: "Por que escolher o WhatsApp Reminder?",
+      title: "Por que usar nahorabot?",
       subtitle: "Lembretes automatizados simples, eficazes e acessíveis que ajudam você a manter contato com clientes e reduzir faltas.",
       whatsappFirst: {
-        title: "Foco no WhatsApp",
-        description: "Envie lembretes onde eles têm mais chances de serem vistos. Com 98% de taxa de abertura, o WhatsApp garante que suas mensagens sejam notadas.",
+        title: "Nunca mais perca compromissos",
+        description: "Agende lembretes para qualquer data e hora e receba uma mensagem automática no WhatsApp.",
       },
       quickSetup: {
-        title: "Configuração Rápida",
-        description: "Comece em minutos, não horas. Sem necessidade de conhecimentos técnicos - apenas conecte seu WhatsApp e comece a agendar lembretes.",
+        title: "Perfeito para empresas e profissionais",
+        description: "Lembre clientes sobre consultas, reuniões, vencimentos e muito mais.",
       },
       costEffective: {
-        title: "Custo-Benefício",
-        description: "Pague uma fração do que você gastaria com ferramentas complexas de automação. Perfeito para pequenas empresas e indivíduos.",
+        title: "Simples e sem complicação",
+        description: "Apenas cadastre um lembrete e nós cuidamos do resto. Tudo funciona direto no WhatsApp!",
       },
     },
     pricing: {
@@ -240,8 +153,6 @@ export const translations: Record<string, Translation> = {
           "Templates básicos",
           "Integração com WhatsApp",
         ],
-        priceText: "R$0",
-        priceRecurrence: "mês",
       },
       basic: {
         title: "Básico",
@@ -252,8 +163,6 @@ export const translations: Record<string, Translation> = {
           "Templates personalizados",
           "Suporte prioritário",
         ],
-        priceText: "R$9,90",
-        priceRecurrence: "mês",
       },
       pro: {
         title: "Pro",
@@ -263,8 +172,6 @@ export const translations: Record<string, Translation> = {
           "Templates avançados",
           "Suporte 24/7 prioritário",
         ],
-        priceText: "R$19,90",
-        priceRecurrence: "mês",
       },
     },
     waitlist: {
@@ -287,20 +194,73 @@ export const translations: Record<string, Translation> = {
       },
       success: {
         title: "Obrigado!",
-        message: "Você está na lista! Avisaremos assim que o Whatsapp Reminder for lançado.",
+        message: "Você está na lista! Avisaremos assim que o nahorabot for lançado.",
       },
     },
     cta: {
       title: "Pronto para Transformar seu Negócio?",
       subtitle: "Entre na lista de espera hoje e seja o primeiro a experimentar o futuro dos lembretes automatizados.",
-      button: "Entrar na Lista",
+      button: "Quero Testar!",
     },
     footer: {
-      description: "Lembretes automatizados via WhatsApp que ajudam no crescimento de pessoas e negócios.",
+      description: "Lembretes automatizados via WhatsApp que ajudam empresas e pessoas a crescerem.",
       quickLinks: "Links Rápidos",
       contact: "Contato",
       support: "Suporte disponível 24/7",
       rights: "Todos os direitos reservados.",
     },
+    faq: {
+      title: "Perguntas Frequentes",
+      questions: [
+        {
+          question: "Preciso instalar algum aplicativo?",
+          answer: "Não! Tudo funciona direto no WhatsApp, sem precisar baixar nada."
+        },
+        {
+          question: "Como os lembretes são enviados?",
+          answer: "Nosso sistema usa a API oficial do WhatsApp para enviar mensagens automáticas."
+        },
+        {
+          question: "Posso cancelar ou editar um lembrete?",
+          answer: "Sim! Você poderá editar, cancelar ou reagendar um lembrete facilmente."
+        },
+        {
+          question: "Quanto vai custar?",
+          answer: "Ainda estamos definindo os planos, mas quem entrar na lista de espera terá condições especiais!"
+        }
+      ]
+    },
+    howItWorks: {
+      title: "Como funciona?",
+      steps: [
+        {
+          step: "Cadastre seu lembrete",
+          description: "em nossa plataforma."
+        },
+        {
+          step: "Escolha o destinatário",
+          description: "(pode ser você, um cliente, um amigo, etc.)."
+        },
+        {
+          step: "Defina o horário",
+          description: "e pronto! O WhatsApp enviará a mensagem automaticamente."
+        }
+      ],
+      tagline: "Automação poderosa, sem complicação!"
+    },
+    forWho: {
+      title: "Para quem é essa ferramenta?",
+      audiences: [
+        "Empreendedores e autônomos: Lembre clientes sobre compromissos, pagamentos e eventos.",
+        "Consultórios e clínicas: Notifique pacientes sobre consultas agendadas.",
+        "Empresas e equipes: Automatize comunicados internos.",
+        "Uso pessoal: Receba lembretes no seu próprio WhatsApp e nunca mais perca prazos!"
+      ]
+    },
+    development: {
+      title: "O que estamos desenvolvendo?",
+      description: "Estamos construindo uma ferramenta simples e eficiente para facilitar seu dia a dia. Se você gostaria de testar essa solução antes de todo mundo, entre na nossa lista de espera!",
+      comingSoon: "Lançamento em breve – garanta seu acesso antecipado!"
+    }
   },
 };

@@ -3,25 +3,27 @@ import {
   Menu,
   X,
   ArrowRight,
-  Bell,
   Clock,
   DollarSign,
   MessageSquare,
   Zap,
   Check,
-  Globe,
 } from 'lucide-react';
 import { translations } from './translations';
+import Logo from './logo.svg?react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [language, setLanguage] = React.useState<'pt' | 'en'>('pt');
+  const [language] = React.useState<'pt'>('pt');
+
+  // Begin form setup
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',
     phone: '',
   });
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  // End form setup
 
   const t = translations[language];
 
@@ -43,6 +45,7 @@ function App() {
     },
   ];
 
+  // Form submission handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
@@ -98,10 +101,6 @@ function App() {
     });
   };
 
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === 'en' ? 'pt' : 'en'));
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -109,12 +108,8 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0 flex items-center">
-              
-                <Bell className="h-8 w-8 text-blue-600" />
-                <a href="/">
-                <span className="text-2xl font-bold text-blue-600 ml-2">
-                  WhatsApp Reminder
-                </span>
+              <a href="#hero">
+                <Logo className="w-auto h-10" />
               </a>
             </div>
 
@@ -127,10 +122,16 @@ function App() {
                 {t.nav.features}
               </a>
               <a
-                href="#pricing"
+                href="#how-it-works"
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
-                {t.nav.pricing}
+                {t.nav.howItWorks}
+              </a>
+              <a
+                href="#faq"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                {t.nav.FAQ}
               </a>
               <a
                 href="#waitlist"
@@ -138,14 +139,6 @@ function App() {
               >
                 {t.nav.joinWaitlist}
               </a>
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                <Globe size={20}/>
-                <span>{language.toUpperCase()}</span>
-              </button>
-
               <a href="#waitlist">
                 <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
                   {t.nav.joinWaitlist}
@@ -155,13 +148,6 @@ function App() {
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center gap-4">
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-colors pl-2"
-              >
-                <Globe size={14} />
-                <span>{language.toUpperCase()}</span>
-              </button>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-700 hover:text-blue-600"
@@ -183,10 +169,16 @@ function App() {
                 {t.nav.features}
               </a>
               <a
-                href="#pricing"
+                href="#how-it-works"
                 className="block px-3 py-2 text-gray-700 hover:text-blue-600"
               >
-                {t.nav.pricing}
+                {t.nav.howItWorks}
+              </a>
+              <a
+                href="#faq"
+                className="block px-3 py-2 text-gray-700 hover:text-blue-600"
+              >
+                {t.nav.FAQ}
               </a>
               <a
                 href="#waitlist"
@@ -194,16 +186,21 @@ function App() {
               >
                 {t.nav.joinWaitlist}
               </a>
-              <button className="w-full mt-2 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">
-                {t.nav.joinWaitlist}
-              </button>
+              <a href="#waitlist">
+                <button className="w-full mt-2 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">
+                  {t.nav.joinWaitlist}
+                </button>
+              </a>
             </div>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-24 px-4 bg-gradient-to-b from-blue-50 to-white">
+      <section
+        id="hero"
+        className="pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-24 px-4 bg-gradient-to-b from-blue-50 to-white"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -220,9 +217,6 @@ function App() {
                   {t.hero.joinWaitlist}{' '}
                   <ArrowRight className="ml-2" size={20} />
                 </a>
-                {/* <button className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-full hover:border-blue-600 hover:text-blue-600 transition-colors">
-                  {t.hero.watchDemo}
-                </button> */}
               </div>
               <p className="mt-4 text-sm text-gray-500">{t.hero.comingSoon}</p>
             </div>
@@ -235,7 +229,7 @@ function App() {
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
                 <div className="flex items-center gap-2">
                   <Clock className="text-green-500" />
-                  <span className="font-semibold">{t.hero.spanText}</span>
+                  <span className="font-semibold">60% menos faltas</span>
                 </div>
               </div>
             </div>
@@ -267,99 +261,84 @@ function App() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-16">
+      {/* How It Works Section */}
+      <section id="how-it-works" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-4">
-            {t.pricing.title}
+            {t.howItWorks.title}
           </h2>
-          <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            {t.pricing.subtitle}
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            {t.howItWorks.steps.map((step, i) => (
+              <div key={i} className="text-center">
+                <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                  {i + 1}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{step.step}</h3>
+                <p className="text-gray-600">{step.description}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xl font-semibold text-center mt-12 text-blue-600">
+            {t.howItWorks.tagline}
           </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Free Plan */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border-2 border-gray-200 hover:border-blue-600 transition-colors">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold">{t.pricing.free.title}</h3>
-                <p className="text-gray-600">{t.pricing.free.description}</p>
-                <div className="mt-4">
-                  <p className="text-3xl font-bold">
-                    {t.pricing.free.priceText}<span className="text-lg text-gray-500">/{t.pricing.free.priceRecurrence}</span>
-                  </p>
-                </div>
-              </div>
-              <ul className="space-y-4 mb-8">
-                {t.pricing.free.features.map((feature, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <Check className="text-blue-600" size={20} />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#waitlist"
-                className="block w-full text-center bg-gray-100 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-200 transition-colors"
-              >
-                {t.nav.joinWaitlist}
-              </a>
-            </div>
+        </div>
+      </section>
 
-            {/* Basic Plan */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-blue-600 transform scale-105">
-              <div className="mb-6">
-                <div className="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium mb-2">
-                  {t.pricing.basic.popular}
-                </div>
-                <h3 className="text-2xl font-bold">{t.pricing.basic.title}</h3>
-                <p className="text-gray-600">{t.pricing.basic.description}</p>
-                <div className="mt-4">
-                  <p className="text-3xl font-bold">
-                    {t.pricing.basic.priceText}<span className="text-lg text-gray-500">/{t.pricing.basic.priceRecurrence}</span>
-                  </p>
-                </div>
-              </div>
-              <ul className="space-y-4 mb-8">
-                {t.pricing.basic.features.map((feature, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <Check className="text-blue-600" size={20} />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#waitlist"
-                className="block w-full text-center bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors"
+      {/* For Who Section */}
+      <section id="for-who" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            {t.forWho.title}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {t.forWho.audiences.map((audience, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm border border-gray-100"
               >
-                {t.nav.joinWaitlist}
-              </a>
-            </div>
+                <Check className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                <p className="text-lg">{audience}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Pro Plan */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border-2 border-gray-200 hover:border-blue-600 transition-colors">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold">{t.pricing.pro.title}</h3>
-                <p className="text-gray-600">{t.pricing.pro.description}</p>
-                <div className="mt-4">
-                  <p className="text-3xl font-bold">
-                  {t.pricing.pro.priceText}<span className="text-lg text-gray-500">/{t.pricing.pro.priceRecurrence}</span>
-                  </p>
-                </div>
-              </div>
-              <ul className="space-y-4 mb-8">
-                {t.pricing.pro.features.map((feature, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <Check className="text-blue-600" size={20} />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#waitlist"
-                className="block w-full text-center bg-gray-100 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-200 transition-colors"
+      {/* Development Section */}
+      <section id="development" className="py-16 bg-blue-50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-6">{t.development.title}</h2>
+          <p className="text-xl text-gray-600 mb-8">
+            {t.development.description}
+          </p>
+          <p className="text-lg font-semibold text-blue-600 mb-8">
+            {t.development.comingSoon}
+          </p>
+          <a
+            href="#waitlist"
+            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors"
+          >
+            {t.cta.button}
+          </a>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            {t.faq.title}
+          </h2>
+          <div className="space-y-6">
+            {t.faq.questions.map((faq, i) => (
+              <div
+                key={i}
+                className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
               >
-                {t.nav.joinWaitlist}
-              </a>
-            </div>
+                <h3 className="text-xl font-semibold mb-3">{faq.question}</h3>
+                <p className="text-gray-600">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -475,10 +454,9 @@ function App() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <Bell className="h-8 w-8 text-blue-500" />
-                <span className="text-2xl font-bold text-white ml-2">
-                WhatsApp Reminder
-                </span>
+                <a href="#hero">
+                  <Logo className="w-auto h-10" />
+                </a>
               </div>
               <p className="text-gray-400">{t.footer.description}</p>
             </div>
@@ -494,8 +472,16 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <a href="#pricing" className="text-gray-400 hover:text-white">
-                    {t.nav.pricing}
+                  <a
+                    href="#how-it-works"
+                    className="text-gray-400 hover:text-white"
+                  >
+                    Como Funciona
+                  </a>
+                </li>
+                <li>
+                  <a href="#faq" className="text-gray-400 hover:text-white">
+                    FAQ
                   </a>
                 </li>
                 <li>
@@ -511,15 +497,15 @@ function App() {
             <div>
               <h3 className="text-xl font-bold mb-4">{t.footer.contact}</h3>
               <p className="text-gray-400">
-                <b>Email:</b> contato.whatsappreminder@gmail.com
+                <b>Email:</b> nahorabot@gmail.com
                 <br />
-               <b> {t.footer.support} </b>
+                {t.footer.support}
               </p>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
             <p>
-              &copy; {new Date().getFullYear()} WhatsApp Reminder. {t.footer.rights}
+              &copy; {new Date().getFullYear()} nahorabot. {t.footer.rights}
             </p>
           </div>
         </div>
